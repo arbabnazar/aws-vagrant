@@ -1,5 +1,6 @@
 Use Vagrant to launch Amazon EC2 Instance
 ----
+There's a blog post that I wrote to go along with this. [Check it out!]
 
 This simple vagrant file helps you to create an EC2 instance on AWS.
 
@@ -16,10 +17,10 @@ vagrant box add aws https://github.com/mitchellh/vagrant-aws/raw/master/dummy.bo
 
 Next login to your AWS console to get the following things:
 
-1- AWS access key
-2- AWS secret key
-3- Security Group name (Make sure that security group enables the SSH port (22) from anywhere)
-4- SSH private key file, which will be in .pem extension
+- AWS access key
+- AWS secret key
+- Security Group name (Make sure that security group enables the SSH port (22) from anywhere)
+- SSH private key file, which will be in .pem extension
 
 I like to set up these parameters as environment variables so that I'll keep them out of the Vagrantfile. On Linux/MAC, you can add them to ~/.profile file:
 ```bash
@@ -37,3 +38,4 @@ vagrant up --provider=aws
 
 This will launch an `Ubuntu 14.04` instance in the `us-east-1` region within your account. If you have issues with SSH connecting, make sure that the SSH access is allowed in the security group of launched instance.
 [vagrant-aws documentation]:https://github.com/mitchellh/vagrant-aws
+[Check it out!]:https://rbgeek.wordpress.com/2015/02/19/provision-configure-ec2-instance-with-vagrant-and-ansible/
